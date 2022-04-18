@@ -132,9 +132,11 @@ body {
 }
 
 .header {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  max-width: 1280px;
+  width: 100%;
+  position: fixed;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -146,13 +148,6 @@ body {
           align-items: center;
   height: 120px;
   background-color: #FFFFFF;
-}
-
-@media (min-width: 320px) and (max-width: 767px) {
-  .header {
-    width: 100%;
-    position: fixed;
-  }
 }
 
 .header .logo {
@@ -345,13 +340,8 @@ body {
 }
 
 .main {
+  padding-top: 120px;
   background-color: #F6F6F6;
-}
-
-@media (min-width: 320px) and (max-width: 767px) {
-  .main {
-    padding-top: 120px;
-  }
 }
 
 .main .pets-content {
