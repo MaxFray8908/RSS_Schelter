@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../../assets/styles/normalize.css">
     <link rel="stylesheet" href="./style.css">
     <link rel="icon" type="image/png" href="../../assets/icons/icons8.png"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     
@@ -15,6 +16,10 @@
                 <p class="subtitle">Shelter for pets in Boston</p>
             </div>
             <nav class="nav-menu">
+                <div class="nav-menu-logo logo">
+                    <a class="link" href="#"><h1 class="title">Cozy House</h1></a>
+                    <p class="subtitle">Shelter for pets in Boston</p>
+                </div>
                 <ul class="nav-items">
                     <li class="nav-item"><a href="#" class="link activ">About the shelter</a></li>
                     <li class="nav-item"><a href="../pets/index.html" class="link">Our pets</a></li>
@@ -22,6 +27,11 @@
                     <li class="nav-item"><a href="#contacts" class="link">Contacts</a></li>
                 </ul>
             </nav>
+            <div class = "hamburger">
+                <div class = "line line1"></div>
+                <div class = "line line2"></div>
+                <div class = "line line3"></div>
+            </div>
     </header>
     
     <main class="main">
@@ -32,11 +42,13 @@
                     <p class="subheading">We offer to give a chance to a little and nice puppy with an extremely wide and open heart. He or she will love you more than anybody else in the world, you will see!</p>
                     <a class="link" href="#our_friends"><button class="btn">Make a friend</button></a>
                 </div>
+                <img class="not_only-img"src="../../assets/images/start-screen-puppy.png">
             </div>
         </section>
         
         <section class="about">
             <div class="wrapper">
+                <img class="about-img"src="../../assets/images/about-pets.png">
                 <div class="content">
                     <h3 class="heading">About the shelter “Cozy House”</h3>
                     <p class="subheading">Currently we have 121 dogs and 342 cats on our hands and statistics show that only 20% of them will find a family. The others will continue to live with us and will be waiting for a lucky chance to become dearly loved.</p>
@@ -54,7 +66,7 @@
                             <img src="../../assets/icons/forward.png">
                         </button>
                         <div class="cards">
-                            <div class="card">
+                            <!-- <div class="card">
                                 <img class="img-pets" src="../../assets/images/pets-katrine.png">
                                 <h4 class="title-pets">Katrine</h4>
                                 <button class="btn">Learn more</button>
@@ -68,7 +80,7 @@
                                 <img class="img-pets" src="../../assets/images/pets-woody.png">
                                 <h4 class="title-pets">Woody</h4>
                                 <button class="btn">Learn more</button>
-                            </div>
+                            </div> -->
                         </div>
                         <button class="button_arrow_back">
                             <img src="../../assets/icons/back.png">
@@ -147,5 +159,6 @@
         </div>
         <img src="../../assets/images/footer-puppy.png" class="img">
     </footer>
+    <script src="./script.js"></script>
 </body>
 </html>

@@ -73,6 +73,15 @@ $footer-gradient-background: url(noise_lines_transparent@2X.png), radial-gradien
     margin: 0;
 }
 
+@mixin header3-mobile() {
+    font-family: 'Georgia';
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 32px;
+    letter-spacing: 0.06em;
+    margin: 0;
+}
+
 @mixin btn() {
     height: 52px;
     width: 207px;
