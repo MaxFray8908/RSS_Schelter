@@ -97,9 +97,13 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
+html, body {
   overflow-x: hidden;
+}
+
+body {
   max-width: 1280px;
+  min-width: 320px;
   margin: 0 auto;
   background: url(../../assets/images/noise_transparent@2x.png) repeat, radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%);
   color: #FFFFFF;
@@ -144,6 +148,13 @@ body {
   background-color: #FFFFFF;
 }
 
+@media (min-width: 320px) and (max-width: 767px) {
+  .header {
+    width: 100%;
+    position: fixed;
+  }
+}
+
 .header .logo {
   text-align: center;
 }
@@ -181,7 +192,6 @@ body {
     top: 0;
     -webkit-transition: 0.5s;
     transition: 0.5s;
-    z-index: 4;
   }
 }
 
@@ -336,6 +346,12 @@ body {
 
 .main {
   background-color: #F6F6F6;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .main {
+    padding-top: 120px;
+  }
 }
 
 .main .pets-content {
