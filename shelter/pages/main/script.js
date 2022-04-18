@@ -21,7 +21,7 @@ hamburger.addEventListener('click', toggleMenu);
 
 function addCard(cointCards) {
     let wrapCards = document.querySelector('.cards');
-    const petsCard = ['Katrine', 'Jennifer', 'Woody', 'Sophia', 'Timmy', 'Charly', 'Scarlet', 'Freddie'] 
+    const petsCard = ['Katrine', 'Jennifer', 'Woody', 'Sophia', 'Timmy', 'Charly', 'Scarlett', 'Freddie'] 
 
     wrapCards.innerHTML = '';
 
