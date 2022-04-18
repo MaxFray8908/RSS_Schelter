@@ -4,19 +4,32 @@ html {
     scroll-behavior: smooth; 
 }
 
+html, body {
+    overflow-x: hidden;
+}
+
 body{
-    width: 1280px;
-    // height: 100vh;
+    max-width: 1280px;
+    min-width: 320px;
     margin: 0 auto;
     background: url(../../assets/images/noise_transparent@2x.png) repeat, radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%);
     color: $color-light-xl;
+
+    @media screen and (max-width: 767px){
+        position: relative;
+    }
 }
 
 .wrapper {
     padding: 0 40px 0;
-    width: 1200px;
-    // margin: 0 auto;
-    // display: block;
+   
+    @media screen and (max-width: 1279px) {
+        padding: 0 30px 0;
+    }
+
+    @media screen and (max-width: 767px){
+        padding: 0 10px 0;
+    }
 }
 
 .header {
@@ -25,6 +38,10 @@ body{
     padding-top: 60px;
     align-items: center;
     height: 60px;
+
+    @media screen and (max-width: 1279px) {
+        padding-top: 30px;
+    }
 
     .logo {
         text-align: center;
@@ -50,15 +67,50 @@ body{
 
     .nav-menu {
         width: 443px;
+
+        @media screen and (max-width: 767px) {
+            position: absolute;
+            background-color: $color-dark-3xl;
+            height: 100vh;
+            width: 320px;
+            right: -320px;
+            top: 0;
+            transition: 0.5s;
+        } 
+
+        &.open {
+            right: 0;
+        }
+
+        .nav-menu-logo {
+            display: none;
+
+            @media screen and (max-width: 767px) {
+                display: block;
+                width: 186px;
+                padding: 30px 126px 0 10px;
+            } 
+        }
     }
+
+    
 
     .nav-items {
         display: flex;
         justify-content: space-between;
         padding-bottom: 3px;
+        z-index: 5;
+
         .activ {
             color: $color-light-s;
             border-bottom: 3px solid $color-primary;
+        }
+
+        @media screen and (max-width: 767px) {
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            padding-top: 158px;
         }
     }
 
@@ -72,23 +124,72 @@ body{
         box-sizing: border-box;
         padding-bottom: 3px;
 
+        @media screen and (max-width: 767px) {
+            color: $color-dark-s;
+            font-size: 32px;
+            line-height: 52px;
+            padding-bottom: 7px;
+        }
+
         &:hover {
             color: $color-light-s;
         }
     }
 
+
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 50px;
+        cursor: pointer;
+        user-select: none;
+        z-index: 5;
+
+        @media screen and (max-width: 767px) {
+            display: flex;
+            padding: 0 43px 0 0;
+        }
+        
+        .line {
+            width: 100%;
+            height: 2px;
+            background: $color-primary;
+            margin: 4px 0;
+            z-index: 6;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        &.open {
+            .line1 {
+                transform: rotate(-90deg) translate(-10px, -10px);
+            }
+            .line2 {
+                transform: rotate(-90deg) translate(0, 0);
+            }
+            .line3 {
+                transform: rotate(-90deg) translate(10px, 10px);
+            }
+        }
+    }
 }
 
 .not_only {
-    height: 728px;
     padding-top: 60px;
 
     .wrapper {
         height: 100%;
-        background-image: url(../../assets/images/start-screen-puppy.png);
-        background-repeat: no-repeat;
-        background-position: right 40px bottom;
-    
+        display: flex;
+        justify-content: space-between;
+        
+        @media screen and (max-width: 1279px) {
+            flex-direction: column;
+            align-items: center;
+            gap: 100px;
+        }
+
         .content{
             display: flex;
             flex-direction: column;
@@ -96,46 +197,124 @@ body{
             padding-top: 163px;
             width: 39%;
 
+            @media screen and (max-width: 1279px) {
+                padding-top: 0;
+                width: 460px;
+            }
+
+            @media screen and (max-width: 767px){
+                align-items: center;
+            }
+
             .heading{
                 width: 310px;
                 @include header2();
+
+                @media screen and (max-width: 767px){   
+                    @include header3-mobile();
+                    letter-spacing: 0.07em;
+                    text-align: center;
+                    width: 220px;
+                }
             }
 
             .subheading{
                 @include paragraphL();
                 color: $color-dark-m;
+
+                @media screen and (max-width: 767px){
+                    width: 300px;
+                    text-align: center;
+                }
             }
 
             .btn {
                 @include btn();
                 background-color: $color-primary;
+
+                @media screen and (max-width: 1279px) {
+                    display: block;
+                    margin: 0 auto;
+                }
+            } 
+        }
+
+        .not_only-img {
+            @media screen and (max-width: 1279px) {
+                width: 80.4%;
+                margin-left: auto;
+                margin-right: 0;
+            }
+            @media screen and (max-width: 320px) {
+                padding-top: 5px;
+                width: 260px;
             }
         }
     }
 }
 
 .about   {
-    .wrapper{
-        height: 588px;
-        padding: 0 40px 0;
+    .wrapper{       
+        display: flex;
+        justify-content: center;
+        gap: 10%;
+        // padding: 0 40px 0;
         background-color: $color-light-xl;
-        background-image: url(../../assets/images/about-pets.png);
-        background-repeat: no-repeat;
-        background-position: left calc(40px + 18%) top 45%;
+
+        @media screen and (max-width: 1279px) {
+            flex-direction: column-reverse;
+            align-items: center;
+        }
+
+        .about-img{
+            padding: 80px 0 100px 0;
+            height: 408px;
+            width: 300px;
+
+            @media screen and (max-width: 1279px) {
+                padding-top: 0;
+            }
+
+            @media screen and (max-width: 767px)  {
+                height: 353.6px;
+                width: 260px;
+                padding-bottom: 42.4px;
+            }
+        }
 
         .content {
-            padding: 94px 14.6% 0 49.6%;
+            padding: 94px 0 114px 0;
+
+            @media screen and (max-width: 1279px) {
+                padding: 80px 0;
+            }
+
+            @media screen and (width: 320px) {
+                padding: 42px 0;
+            }
 
             .heading {
                 @include header3();
                 color: $color-dark-l;
                 width: 370px;
+
+                @media screen and (max-width: 767px){   
+                    @include header3-mobile();
+                    text-align: center;
+                    width: 270px;
+                }
             }
 
             .subheading {
-                padding-top: 25px;
+                padding-top: 24px;
+                width: 430px;
                 @include paragraphL();
                 color: $color-dark-xl;
+
+                @media screen and (max-width: 767px){   
+                    width: 270px;
+                    text-align: justify;
+                }
             }
         }
     }
@@ -143,9 +322,12 @@ body{
 
 .our_friends{
     .wrapper{
-        height: 877px;
-        padding: 0 40px 0;
         background-color: $color-light-l;
+        padding-bottom: 100px;
+
+        @media screen and (max-width: 320px) {  
+            padding-bottom: 42px;
+        }
 
         .pets-content {
             padding-top: 80px;
@@ -154,17 +336,39 @@ body{
             align-items: center;
             gap: 60px;
 
+            @media screen and (max-width: 767px){   
+                padding-top: 42px;
+            }
+
+            @media screen and (max-width: 320px) {   
+                gap: 42px;
+            }
+
             .heading{
                 text-align: center;
                 width: 400px;
                 @include header3();
                 color: $color-dark-l;
+
+                @media screen and (max-width: 767px){   
+                    @include header3-mobile();
+                    text-align: center;
+                    width: 300px;
+                }
             }
 
             .slider {
+                width: 100%;
                 display: flex;
                 align-items: center;
-                gap: 53px;
+                justify-content: space-between;
+
+                @media screen and (max-width: 767px){  
+                    justify-content: center; 
+                    gap: 80px;
+                    row-gap: 20px;
+                    flex-wrap: wrap;
+                }
 
                 .button_arrow_forward,
                 .button_arrow_back {
@@ -184,7 +388,22 @@ body{
 
                 .cards {
                     display: flex;
-                    gap: 90px;
+                    width: 82.5%;
+                    justify-content: space-between;
+
+                    @media screen and (max-width: 1279px) {
+                        justify-content: space-around;
+                    }
+
+                    @media screen and (max-width: 768px) {
+                        justify-content: space-between;
+                        width: 81.9%;
+                    }
+
+                    @media screen and (max-width: 767px) { 
+                        justify-content: center;  
+                        order: -1;
+                    }
 
                     .card {
                         display: flex;
@@ -210,7 +429,8 @@ body{
                         &:hover{
                             cursor: pointer;
                             background-color: $color-light-xl;
-        
+                            box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04); 
+                            
                             .btn{
                                 background-color: $color-primary-light;
                                 border: 2px solid $color-primary-light;
@@ -232,7 +452,6 @@ body{
 
 .help {
     .wrapper{
-        padding: 0 40px 0;
         background-color: $color-light-xl;
         
         .help-content{
@@ -241,21 +460,45 @@ body{
             align-items: center;
             padding-top: 80px;
 
+            @media screen and (max-width: 767px) {  
+                padding-top: 42px;
+            }
+
             .heading{
                 width: 310px;
                 @include header3();
                 color: $color-dark-l;
                 text-align: center;
+
+                @media screen and (max-width: 767px) {  
+                    @include header3-mobile();
+                    width: 270px;
+                }
             }
 
             .list {
-                padding: 60px 87px 100px;
+                padding: 60px 0 100px;
+                margin: 0 auto;
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
                 align-content: center;
                 gap: 120px;
                 row-gap: 55px;
+
+                @media screen and (max-width: 1279px) {
+                    padding-left: 5.5%;
+                    padding-right: 5.5%;
+                    gap: 7%;
+                    row-gap: 55px;  
+                    justify-content: space-between;
+                }
+
+                @media screen and (max-width: 767px) { 
+                    padding: 42px 5px 42px;
+                    gap: 30px;
+                    width: 290px;
+                }
 
                 .list-item{
                     height: 113px;
@@ -264,14 +507,31 @@ body{
                     justify-content: space-between;
                     align-items: center;
 
+                    @media screen and (max-width: 1279px) {
+                        width: 26.7%;
+                    }
+
+                    @media screen and (max-width: 767px) {  
+                        height: 87px;
+                        width: 130px;
+                    }
+
                     .icon {
                         height: 60px;
+
+                        @media screen and (max-width: 767px) {  
+                            height: 50px;
+                        }
                     }
 
                     .title-icon{
                         @include header4();
                         letter-spacing: 0.055em;
                         color: $color-dark-l;
+
+                        @media screen and (max-width: 767px) {  
+                            @include header5();
+                        }
                     }
                 }
             }
@@ -280,15 +540,35 @@ body{
 }
 
 .in_addition {
-    height: 462px;
+    padding-top: 80px;
+    padding-bottom: 100px;
     background-color: $color-light-l;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 30px;
 
+    @media screen and (max-width: 1279px) {
+        flex-direction: column-reverse;
+        gap: 60px;
+    }
+
+    @media screen and (max-width: 767px) { 
+        padding-top: 42px;
+        padding-bottom: 42px;
+        gap: 42px;
+    }
+
     .donation-img {
-        padding-bottom: 15px;
+
+        @media screen and (max-width: 768px) {
+            padding-bottom: 0;
+        }
+
+        @media screen and (max-width: 767px) {
+            width: 86.6%;
+            max-width: 505px;
+        }
     }
 
     .content {
@@ -296,17 +576,33 @@ body{
         display: flex;
         flex-direction: column;
         gap: 20px;
-        padding-bottom: 18px;
+
+        @media screen and (max-width: 767px) {
+            padding-bottom: 0;
+            align-items: center;
+            width: 300px;
+        }
 
         .heading {
             width: 300px;
             @include header3();
             color: $color-dark-l;
+
+            @media screen and (max-width: 767px) { 
+                @include header3-mobile();
+                text-align: center;
+                width: 220px;
+            }
         }
 
         .subheading {
             @include header5();
             color: $color-dark-l;
+
+            @media screen and (max-width: 767px) { 
+                line-height: 24px;
+                letter-spacing: 0;
+            }
         }
 
         .credit-card {
@@ -316,10 +612,13 @@ body{
             border-radius: 9px;
             border: 2px solid $color-primary;
             transition: all .6s;
-
-            
             @include header4();
             color: $color-dark-l;
+
+            @media screen and (max-width: 767px) { 
+                width: 281px;
+                @include header5();
+            }
 
             .icon-footer{ 
                 padding-right: 15px;
@@ -337,6 +636,11 @@ body{
         .informalion{
             @include paragraphS();
             color: $color-dark-m;
+
+            @media screen and (max-width: 767px) { 
+                width: 280px;
+                text-align: justify;
+            }
         }
     }
 }
@@ -344,6 +648,19 @@ body{
 .footer{
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 60px;
+
+
+    @media screen and (max-width: 1279px) {
+        justify-content: center;
+        gap: 8.5%;
+        row-gap: 65px;
+    }
+
+    @media screen and (max-width: 767px) { 
+        gap: 3.3%;
+    }
 
     .contancts{
         width: 279px;
@@ -352,6 +669,15 @@ body{
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
+        @media screen and (max-width: 1279px) {
+            padding: 30px 0 0 0;
+        }
+
+        @media screen and (max-width: 767px) { 
+            align-items: center;
+            height: 208px;
+        }
     }
 
     .locations{
@@ -370,11 +696,27 @@ body{
                 width: 260px;
             }
         }
+
+        @media screen and (max-width: 1279px) {
+            padding: 30px 0 0 0;
+        }
+
+        @media screen and (max-width: 767px) { 
+            height: 222px;
+            padding: 40px 10% 0;
+        }
     }
 
     .title-footer{
         @include header3();
         letter-spacing: 0.06em;
+
+        @media screen and (max-width: 767px) { 
+            @include header3-mobile();
+            text-align: center;
+            width: 290px;
+            padding-left: 5px;
+        }
     }
 
     .content {
@@ -390,5 +732,15 @@ body{
     .img{
         padding-top: 40px;
         height: 310px;
+
+        @media screen and (max-width: 1279px) {
+            // padding-top: 5px;
+            padding: 5px 5% 0;
+        }
+
+        @media screen and (max-width: 767px) { 
+            padding-top: 40px;
+            height: 269px;
+        }
     }
 }

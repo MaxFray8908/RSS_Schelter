@@ -3,17 +3,36 @@ html {
     scroll-behavior: smooth; 
 }
 
+html, body {
+    
+}
+
 body{
-    width: 1280px;
+    overflow-x: hidden;
+    max-width: 1280px;
     margin: 0 auto;
     background: url(../../assets/images/noise_transparent@2x.png) repeat, radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%);
     color: $color-light-xl;
     
+    @media screen and (min-width: 320px) and (max-width: 767px){
+        position: relative;
+    }
+
 }
+
+
 
 .wrapper {
     padding: 0 40px 0;
-    width: 1200px;
+    // width: 1200px;
+
+    @media screen and (max-width: 1279px) {
+        padding: 0 30px 0;
+    }
+
+    @media screen and (min-width: 319px) and (max-width: 767px){
+        padding: 0 10px 0;
+    }
 }
 
 .header {
@@ -50,6 +69,38 @@ body{
 
     .nav-menu {
         width: 443px;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            position: absolute;
+            background-color: $color-dark-3xl;
+            height: 100vh;
+            width: 320px;
+            right: -320px;
+            top: 0;
+            transition: 0.5s;
+            z-index: 4;
+        } 
+
+        &.open {
+            right: 0;
+        }
+
+        .nav-menu-logo {
+            display: none;
+
+            @media (min-width: 320px) and (max-width: 767px) {
+                display: block;
+                width: 186px;
+                padding: 30px 126px 0 10px;
+
+                .title {
+                    color: $color-primary;
+                }
+                .subtitle {
+                    color:$color-light-xl;
+                } 
+           }
+        }   
     }
 
     .nav-items {
@@ -57,6 +108,12 @@ body{
         justify-content: space-between;
         padding-bottom: 3px;
 
+        @media (min-width: 320px) and (max-width: 767px) {
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            padding-top: 158px;
+        }
         
         .link {
             color: $color-dark-l;
@@ -68,16 +125,73 @@ body{
             box-sizing: border-box;
             padding-bottom: 3px;
     
+            @media (min-width: 320px) and (max-width: 767px) {
+                color: $color-dark-s;
+                font-size: 32px;
+                line-height: 52px;
+                padding-bottom: 7px;
+            }
+
             &:hover {
                 color: $color-dark-3xl;
+
+                @media (min-width: 320px) and (max-width: 767px) {
+                    color: $color-light-s;
+                }
             }
         }
 
         .activ {
-            color: $color-dark-l;
+            color: $color-dark-3xl;
             border-bottom: 3px solid $color-primary;
-        }
 
+            @media (min-width: 320px) and (max-width: 767px) {
+                color: $color-light-s;
+            }
+            
+        }
+    }
+
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 50px;
+        cursor: pointer;
+        user-select: none;
+        z-index: 5;
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            display: flex;
+            padding: 0 43px 0 0;
+        }
+        
+        .line {
+            width: 100%;
+            height: 2px;
+            background: #000000;
+            margin: 4px 0;
+            z-index: 6;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        &.open {
+            .line {
+                background: $color-primary;
+            }
+
+            .line1 {
+                transform: rotate(-90deg) translate(-10px, -10px);
+            }
+            .line2 {
+                transform: rotate(-90deg) translate(0, 0);
+            }
+            .line3 {
+                transform: rotate(-90deg) translate(10px, 10px);
+            }
+        }
     }
 }
 
@@ -92,18 +206,52 @@ body{
         justify-content: space-between;
         align-items: center;
 
+        @media screen and (max-width: 1279px) {
+            gap: 30px;
+            padding-bottom: 76px;
+        }
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            padding-top: 42px;
+            padding-bottom: 42px;
+            gap: 42px;
+        }
+
         .heading {
             width: 400px;
             text-align: center;
             @include header3();
             color: $color-dark-l;
+
+            @media (min-width: 320px) and (max-width: 767px) {
+                @include header3-mobile();
+            }
         }
 
         .cards_container {
             display: flex;
+            justify-content: center;
             flex-wrap: wrap;
             gap: 40px;
             row-gap: 0;
+
+            @media screen and (max-width: 1279px) {
+                padding-left: 15%;
+                padding-right: 15%;
+                gap: 6.5%;
+                row-gap: 30px;
+                padding-bottom: 10px;
+            }
+
+            @media screen and (max-width: 1170px) {
+                padding-left: 8.5%;
+                padding-right: 8.5%;
+            }
+
+            @media (min-width: 320px) and (max-width: 767px) {
+                flex-direction: column;
+            }
+            
 
             .card {
                 margin: 15px 0;
@@ -115,6 +263,10 @@ body{
                 background-color: $color-light-s;
                 border-radius: 9px;
                 transition: all .6s;
+
+                @media screen and (max-width: 1279px) {
+                    margin: 0;
+                }
 
                 .title-pets{
                     @include header4();
@@ -130,6 +282,7 @@ body{
                 &:hover{
                     cursor: pointer;
                     background-color: $color-light-xl;
+                    box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04); 
 
                     .btn{
                         background-color: $color-primary-light;
@@ -145,6 +298,9 @@ body{
             display: flex;
             justify-content: space-between;
             
+            @media (min-width: 320px) and (max-width: 767px) {
+                width: 300px;
+            }
 
             .button_paginator {
                 border-radius: 100px;
@@ -180,6 +336,20 @@ body{
 .footer{
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 60px;
+
+
+    @media screen and (max-width: 1279px) {
+        justify-content: center;
+        gap: 8.5%;
+        row-gap: 65px;
+    }
+
+    @media screen and (min-width: 320px) and (max-width: 767px) { 
+        // gap: 10px;
+        gap: 3.3%;
+    }
 
     .contancts{
         width: 279px;
@@ -188,6 +358,15 @@ body{
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
+        @media screen and (max-width: 1279px) {
+            padding: 30px 0 0 0;
+        }
+
+        @media screen and (min-width: 320px) and (max-width: 767px) { 
+            align-items: center;
+            height: 208px;
+        }
     }
 
     .locations{
@@ -206,11 +385,27 @@ body{
                 width: 260px;
             }
         }
+
+        @media screen and (max-width: 1279px) {
+            padding: 30px 0 0 0;
+        }
+
+        @media screen and (min-width: 320px) and (max-width: 767px) { 
+            height: 222px;
+            padding: 40px 10% 0;
+        }
     }
 
     .title-footer{
         @include header3();
         letter-spacing: 0.06em;
+
+        @media screen and (min-width: 320px) and (max-width: 767px) { 
+            @include header3-mobile();
+            text-align: center;
+            width: 290px;
+            padding-left: 5px;
+        }
     }
 
     .content {
@@ -226,5 +421,15 @@ body{
     .img{
         padding-top: 40px;
         height: 310px;
+
+        @media screen and (max-width: 1279px) {
+            // padding-top: 5px;
+            padding: 5px 5% 0;
+        }
+
+        @media screen and (min-width: 320px) and (max-width: 767px) { 
+            padding-top: 40px;
+            height: 269px;
+        }
     }
 }
