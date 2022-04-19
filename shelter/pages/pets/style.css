@@ -419,6 +419,7 @@ body {
     padding-right: 15%;
     gap: 6.5%;
     row-gap: 30px;
+    padding-bottom: 10px;
   }
 }
 
@@ -708,7 +709,7 @@ body {
 
 @media screen and (max-width: 1279px) {
   .footer .img {
-    padding: 5px 5% 0;
+    padding: 0 10% 0;
   }
 }
 
