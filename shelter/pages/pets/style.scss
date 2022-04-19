@@ -241,6 +241,7 @@ body{
                 padding-right: 15%;
                 gap: 6.5%;
                 row-gap: 30px;
+                padding-bottom: 10px;
             }
 
             @media screen and (max-width: 1170px) {
@@ -424,7 +425,7 @@ body{
 
         @media screen and (max-width: 1279px) {
             // padding-top: 5px;
-            padding: 5px 5% 0;
+            padding: 0 10% 0;
         }
 
         @media screen and (min-width: 320px) and (max-width: 767px) { 
