@@ -1,0 +1,311 @@
+@charset "UTF-8";
+@font-face {
+  font-family: Arial;
+  src: url("../fonts/arialmt.ttf");
+}
+
+@font-face {
+  font-family: Georgia;
+  src: url("../fonts/georgia.ttf");
+}
+
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.footer .contancts {
+  width: 279px;
+  height: 234px;
+  padding: 57px 0 60px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.footer .locations {
+  width: 302px;
+  height: 234px;
+  padding: 57px 0 60px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.footer .locations .content-adresse-1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footer .locations .content-adresse-1 .adresse-1 {
+  display: inline-block;
+  width: 260px;
+}
+
+.footer .title-footer {
+  font-family: 'Georgia';
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 45px;
+  letter-spacing: 0.06em;
+  margin: 0;
+  letter-spacing: 0.06em;
+}
+
+.footer .content {
+  font-family: 'Georgia';
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 0.06em;
+  margin: 0;
+  color: #F1CDB3;
+}
+
+.footer .icon-footer {
+  padding-right: 20px;
+  vertical-align: middle;
+}
+
+.footer .img {
+  padding-top: 40px;
+  height: 310px;
+}
+
+.modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: transparent;
+  /* Скрываем окна  */
+  opacity: 0;
+  visibility: hidden;
+  /*  Установаем ширину окна  */
+  width: 90%;
+  max-width: 952px;
+  /*  Центрируем и задаем z-index */
+  position: fixed;
+  top: 50%;
+  left: calc(50% + 26px);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 30;
+  /* Должен быть выше чем у подложки*/
+  /*  Побочные стили   */
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+
+.modal .button_close {
+  position: relative;
+  left: -10px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 52px;
+          flex: 0 0 52px;
+  border-radius: 100px;
+  height: 52px;
+  width: 52px;
+  background-color: transparent;
+  border: 2px solid #F1CDB3;
+  -webkit-transition: all .6s;
+  transition: all .6s;
+}
+
+.modal .button_close:hover {
+  cursor: pointer;
+  background-color: #FDDCC4;
+  border: 2px solid #FDDCC4;
+}
+
+@media screen and (max-width: 767px) {
+  .modal .button_close {
+    left: -22px;
+  }
+}
+
+.modal .modal-window {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 0px;
+          flex: 1 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 32px;
+  margin-top: 52px;
+  background-color: #FAFAFA;
+  border-radius: 9px;
+  color: #000000;
+}
+
+.modal .modal-window:hover {
+  -webkit-box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+          box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+}
+
+@media screen and (max-width: 1279px) {
+  .modal .modal-window {
+    gap: 11px;
+  }
+}
+
+.modal .modal-window .modal-img {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 55%;
+          flex: 0 0 55%;
+}
+
+@media screen and (max-width: 767px) {
+  .modal .modal-window .modal-img {
+    display: none;
+  }
+}
+
+.modal .modal-window .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 4.4%;
+  padding-top: 5.6%;
+  padding-right: 20px;
+}
+
+@media screen and (max-width: 1279px) {
+  .modal .modal-window .content {
+    padding-top: 1.6%;
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .modal .modal-window .content {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .modal .modal-window .content .title {
+    margin: 0 auto;
+  }
+}
+
+.modal .modal-window .content .modal-name {
+  font-family: 'Georgia';
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 45px;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.modal .modal-window .content .modal-breed {
+  font-family: 'Georgia';
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 0.06em;
+  margin: 0;
+  padding-top: 10px;
+}
+
+.modal .modal-window .content .modal-description {
+  font-family: 'Georgia';
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 17px;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+@media screen and (max-width: 1279px) {
+  .modal .modal-window .content .modal-description {
+    font-size: 13px;
+    line-height: 14px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .modal .modal-window .content .modal-description {
+    text-align: justify;
+  }
+}
+
+.modal .modal-window .content .list {
+  list-style: disc;
+  padding-left: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+
+.modal .modal-window .content .list .list-item {
+  color: #F1CDB3;
+  font-family: 'Georgia';
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 17px;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.modal .modal-window .content .list .list-item .title-list-item {
+  color: #000000;
+  font-weight: 700;
+}
+
+.modal .modal-window .content .list .list-item .text {
+  color: #000000;
+}
+
+.overlay {
+  /* Скрываем подложку  */
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(41, 41, 41, 0.6);
+  z-index: 20;
+  -webkit-transition: .3s all;
+  transition: .3s all;
+}
+
+/* Стили для активных классов подложки и окна */
+.modal.active,
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+/*# sourceMappingURL=modal.css.map */

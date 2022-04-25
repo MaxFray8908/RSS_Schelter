@@ -101,6 +101,10 @@ html, body {
   overflow-x: hidden;
 }
 
+html.no-active, body.no-active {
+  overflow-y: hidden;
+}
+
 body {
   max-width: 1280px;
   min-width: 320px;
@@ -187,6 +191,7 @@ body {
     top: 0;
     -webkit-transition: 0.5s;
     transition: 0.5s;
+    z-index: 25;
   }
 }
 
@@ -281,7 +286,7 @@ body {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  z-index: 5;
+  z-index: 25;
 }
 
 @media screen and (max-width: 767px) {
@@ -766,6 +771,11 @@ body {
   border: 2px solid #FDDCC4;
 }
 
+.our_friends .wrapper .pets-content .slider .cards.anim-cards {
+  -webkit-animation: next 2s 0s;
+          animation: next 2s 0s;
+}
+
 .our_friends .wrapper .pets-content .btn {
   height: 52px;
   width: 207px;
@@ -1118,17 +1128,14 @@ body {
 
 @media screen and (max-width: 1279px) {
   .footer {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
     gap: 8.5%;
     row-gap: 65px;
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 320px) and (max-width: 767px) {
   .footer {
-    gap: 3.7%;
+    gap: 3.3%;
   }
 }
 
@@ -1154,12 +1161,15 @@ body {
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 320px) and (max-width: 767px) {
   .footer .contancts {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
     height: 208px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 }
 
@@ -1199,7 +1209,7 @@ body {
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 320px) and (max-width: 767px) {
   .footer .locations {
     height: 222px;
     padding: 40px 10% 0;
@@ -1216,7 +1226,7 @@ body {
   letter-spacing: 0.06em;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 320px) and (max-width: 767px) {
   .footer .title-footer {
     font-family: 'Georgia';
     font-weight: 400;
@@ -1252,14 +1262,58 @@ body {
 
 @media screen and (max-width: 1279px) {
   .footer .img {
-    padding: 3px 10% 0;
+    padding: 0 10% 0;
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 320px) and (max-width: 767px) {
   .footer .img {
     padding-top: 40px;
     height: 269px;
+  }
+}
+
+@-webkit-keyframes next {
+  from {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+  50% {
+    -webkit-transform: translate(-150%, 0%);
+            transform: translate(-150%, 0%);
+    opacity: 0;
+  }
+  51% {
+    opacity: 0;
+    -webkit-transform: translate(150%, 0%);
+            transform: translate(150%, 0%);
+  }
+  75% {
+    opacity: 1;
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+}
+
+@keyframes next {
+  from {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+  50% {
+    -webkit-transform: translate(-150%, 0%);
+            transform: translate(-150%, 0%);
+    opacity: 0;
+  }
+  51% {
+    opacity: 0;
+    -webkit-transform: translate(150%, 0%);
+            transform: translate(150%, 0%);
+  }
+  75% {
+    opacity: 1;
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
   }
 }
 /*# sourceMappingURL=style.css.map */
