@@ -1,64 +1,116 @@
-//hamburger
+import pets from '../../assets/data/pets.js';
+
 const hamburger = document.querySelector('.hamburger');
 const nav = document.querySelector('.nav-menu');
-const bodyBackground = document.querySelector('body');
+let overlayHamburger = document.querySelector('.hamburger-overlay');
+let countCards = calccountCards();
+let arrayCards = [];
+let numberPage = 1;
+let navigation = document.querySelector('.navigation');
 
 function toggleMenu() {
-    console.log('ddd');
     hamburger.classList.toggle('open');
     nav.classList.toggle('open');
-    bodyBackground.classList.toggle('no-activ');
+    overlayHamburger.classList.toggle('active');
+    document.querySelector('html').classList.toggle('no-active');
 }
 
-// // function closeMenu(event) {
-// //   if (event.target.classList.contains('nav-item')) {
-// //     hamburger.classList.remove('open');
-// //     nav.classList.toggle('open');
-// //   }
-// // }
+function closeMenu(event) {
+
+    if (event.target.className === 'link') {
+
+        hamburger.classList.remove('open');
+        nav.classList.toggle('open');
+        overlayHamburger.classList.toggle('active');
+        document.querySelector('html').classList.toggle('no-active');
+  }
+}
 
 hamburger.addEventListener('click', toggleMenu);
-// nav.addEventListener('click', closeMenu);
+nav.addEventListener('click', closeMenu);
+overlayHamburger.addEventListener('click', toggleMenu);
 
 
-function addCard(cointCards) {
-    let wrapCards = document.querySelector('.cards_container');
-    const petsCard = ['Katrine', 'Jennifer', 'Woody', 'Sophia', 'Timmy', 'Charly', 'Scarlett', 'Freddie'] 
+function addCard() {
+
+    let nextArrayCards = arrayCards.slice(numberPage * countCards, numberPage * countCards + countCards);
+    // console.log(nextArrayCards[]);
+    let wrapCards = document.querySelector('.cards');
+     
 
     wrapCards.innerHTML = '';
 
-    for (let i = 0; i < cointCards; i++) {
-        let card = `<div class="card">
-                        <img class="img-pets" src="../../assets/images/img-cards/${petsCard[i]}.png">
-                        <h4 class="title-pets">${petsCard[i]}</h4>
-                        <button class="btn">Learn more</button>
+    for (let item of nextArrayCards) {
+        let card = `<div class="card" data-name="${item.name}">
+                        <img class="img-pets" data-name="${item.name}" src="../../assets/images/img-cards/${item.name}.png">
+                        <h4 class="title-pets" data-name="${item.name}">${item.name}</h4>
+                        <button class="btn" data-name="${item.name}">Learn more</button>
                     </div>`
 
         wrapCards.insertAdjacentHTML('beforeend', card);        
     }
-    
 }
 
 function screenWidth () {
-    if (window.matchMedia("(min-width: 1280px)").matches) {
-        addCard(8);
-    } 
-    else if (window.matchMedia("(min-width: 768px)").matches) {
-        addCard(6);
+    if (countCards != calccountCards()) {
+        generationIndexCards();
+        addCard();
     }
-    else if (window.matchMedia("(min-width: 320px) and (max-width: 767px)").matches) {
-        addCard(3);
-    }
+    countCards = calccountCards();
 }
 
 window.addEventListener("resize", screenWidth);
 
 
+function calccountCards() {
+    if (window.matchMedia("(min-width: 1280px)").matches) {
+        return 8;
+    } 
+    else if (window.matchMedia("(min-width: 768px)").matches) {
+        return 6;
+    }
+    else if (window.matchMedia("(max-width: 767px)").matches) {
+        return 3;
+    }
+}
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function generationArrayCards() {
+    let countIndexCards = {'1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0};
+
+    for (let i = 0; i < (48 / countCards); i++) {
+        // console.log('ddd');
+        let arrayIndex = new Set();
+        while (arrayIndex.size !== countCards) {
+            let indexCard = getRandomInt(0, 8);
+            // console.log(countIndexCards.indexCard);
+            if(countIndexCards.indexCard !== 6) {
+                
+                arrayIndex.add(indexCard);
+            }
+        }
+        
+        for(let index of arrayIndex) {
+            arrayCards.push(pets[index])
+        }
+    }
+    // console.log(arrayCards);
+    addCard();
+}
+
+function editPage(event) {
+    console.log(event.target.className);
+    if (event.target.className.indexOf('forward') !== -1) {
+        numberPage += 1;
+        addCard();
+    }
+}
 
 
-
-
-
+navigation.addEventListener('click', editPage)
 
 //local storage
 function setLocalStorage() {
@@ -67,7 +119,7 @@ function setLocalStorage() {
 window.addEventListener('beforeunload', setLocalStorage)
   
 function getLocalStorage() {
-    screenWidth ();
+    generationArrayCards();
 
 //     if (localStorage.getItem('')) {
 //         const  = localStorage.getItem('');
@@ -82,3 +134,5 @@ function getLocalStorage() {
     // }
 }
 window.addEventListener('load', getLocalStorage)
+
+alert('Прошу проверить работу сегодня после 6 вечера');

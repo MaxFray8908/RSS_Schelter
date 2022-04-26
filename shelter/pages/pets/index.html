@@ -5,6 +5,7 @@
     <title>Cozy House</title>
     <link rel="stylesheet" href="../../assets/styles/normalize.css">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="../modal.css">
     <link rel="icon" type="image/png" href="../../assets/icons/icons8.png"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -31,12 +32,12 @@
             <div class = "line line2"></div>
             <div class = "line line3"></div>
         </div>
+        <div class="overlay hamburger-overlay"></div>
     </header>
     <main class="main wrapper">
         <div class="pets-content">
             <h3 class="heading">Our friends who <br/> are looking for a house</h3>
-            <div class="cards_container">
-            </div>
+            <div class="cards"> </div>
             <div class="navigation">
                 <button class="button_paginator two_back inactive"> << </button>
                 <button class="button_paginator back inactive"> < </button>
@@ -59,6 +60,7 @@
         </div>
         <img src="../../assets/images/footer-puppy.png" class="img">
     </footer>
-    <script src="./script.js"></script>
+    <script type="module" src="./script.js"></script>
+    <script type="module" src="../modal.js"></script>
 </body>
 </html>

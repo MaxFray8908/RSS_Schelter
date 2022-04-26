@@ -6,10 +6,13 @@ html {
 
 html, body {
     overflow-x: hidden;
+
+    &.no-active {
+        overflow-y: hidden;
+    }
 }
 
 body{
-    
     max-width: 1280px;
     min-width: 320px;
     margin: 0 auto;
@@ -72,13 +75,13 @@ body{
 
         @media (min-width: 320px) and (max-width: 767px) {
             position: absolute;
-            background-color: $color-dark-3xl;
+            background-color: $color-light-xl;
             height: 100vh;
             width: 320px;
             right: -320px;
             top: 0;
             transition: 0.5s;
-            // z-index: 4;
+            z-index: 25;
         } 
 
         &.open {
@@ -92,13 +95,6 @@ body{
                 display: block;
                 width: 186px;
                 padding: 30px 126px 0 10px;
-
-                .title {
-                    color: $color-primary;
-                }
-                .subtitle {
-                    color:$color-light-xl;
-                } 
            }
         }   
     }
@@ -126,7 +122,6 @@ body{
             padding-bottom: 3px;
     
             @media (min-width: 320px) and (max-width: 767px) {
-                color: $color-dark-s;
                 font-size: 32px;
                 line-height: 52px;
                 padding-bottom: 7px;
@@ -134,21 +129,12 @@ body{
 
             &:hover {
                 color: $color-dark-3xl;
-
-                @media (min-width: 320px) and (max-width: 767px) {
-                    color: $color-light-s;
-                }
             }
         }
 
         .activ {
             color: $color-dark-3xl;
-            border-bottom: 3px solid $color-primary;
-
-            @media (min-width: 320px) and (max-width: 767px) {
-                color: $color-light-s;
-            }
-            
+            border-bottom: 3px solid $color-primary;           
         }
     }
 
@@ -161,7 +147,7 @@ body{
         height: 50px;
         cursor: pointer;
         user-select: none;
-        z-index: 5;
+        z-index: 25;
 
         @media (min-width: 320px) and (max-width: 767px) {
             display: flex;
@@ -178,9 +164,6 @@ body{
         }
         
         &.open {
-            .line {
-                background: $color-primary;
-            }
 
             .line1 {
                 transform: rotate(-90deg) translate(-10px, -10px);
@@ -229,7 +212,7 @@ body{
             }
         }
 
-        .cards_container {
+        .cards {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;

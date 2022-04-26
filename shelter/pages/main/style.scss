@@ -6,7 +6,13 @@ html {
 
 html, body {
     overflow-x: hidden;
+
+    &.no-active {
+        overflow-y: hidden;
+    }
 }
+
+
 
 body{
     max-width: 1280px;
@@ -76,6 +82,7 @@ body{
             right: -320px;
             top: 0;
             transition: 0.5s;
+            z-index: 25;
         } 
 
         &.open {
@@ -146,7 +153,7 @@ body{
         height: 50px;
         cursor: pointer;
         user-select: none;
-        z-index: 5;
+        z-index: 25;
 
         @media screen and (max-width: 767px) {
             display: flex;
@@ -438,6 +445,10 @@ body{
                             
                         }
                     }
+
+                    &.anim-cards {
+                        animation: next 2s 0s;
+                    }
                 }
             }
 
@@ -653,13 +664,14 @@ body{
 
 
     @media screen and (max-width: 1279px) {
-        justify-content: center;
+        
         gap: 8.5%;
         row-gap: 65px;
     }
 
-    @media screen and (max-width: 767px) { 
-        gap: 3.7%;
+    @media screen and (min-width: 320px) and (max-width: 767px) { 
+        // gap: 10px;
+        gap: 3.3%;
     }
 
     .contancts{
@@ -674,9 +686,10 @@ body{
             padding: 30px 0 0 0;
         }
 
-        @media screen and (max-width: 767px) { 
+        @media screen and (min-width: 320px) and (max-width: 767px) { 
             align-items: center;
             height: 208px;
+            justify-content: center;
         }
     }
 
@@ -701,7 +714,7 @@ body{
             padding: 30px 0 0 0;
         }
 
-        @media screen and (max-width: 767px) { 
+        @media screen and (min-width: 320px) and (max-width: 767px) { 
             height: 222px;
             padding: 40px 10% 0;
         }
@@ -711,7 +724,7 @@ body{
         @include header3();
         letter-spacing: 0.06em;
 
-        @media screen and (max-width: 767px) { 
+        @media screen and (min-width: 320px) and (max-width: 767px) { 
             @include header3-mobile();
             text-align: center;
             width: 290px;
@@ -735,12 +748,37 @@ body{
 
         @media screen and (max-width: 1279px) {
             // padding-top: 5px;
-            padding: 3px 10% 0;
+            padding: 0 10% 0;
         }
 
-        @media screen and (max-width: 767px) { 
+        @media screen and (min-width: 320px) and (max-width: 767px) { 
             padding-top: 40px;
             height: 269px;
         }
+    }
+}
+
+
+
+
+
+@keyframes next {
+
+    from  {
+        transform: translate(0%, 0%);
+    }
+    50% {
+        transform: translate(-150%, 0%);
+        opacity: 0;
+
+    }
+
+    51% {
+        opacity: 0;
+        transform: translate(150%, 0%);
+    }
+    75% {
+        opacity: 1;
+        transform: translate(0%, 0%);
     }
 }
