@@ -39,12 +39,40 @@
             <h3 class="heading">Our friends who <br/> are looking for a house</h3>
             <div class="cards"> </div>
             <div class="navigation">
-                <button class="button_paginator two_back inactive"> << </button>
-                <button class="button_paginator back inactive"> < </button>
+                <button class="button_paginator two_back prev inactive"> << </button>
+                <button class="button_paginator back prev inactive"> < </button>
                 <button class="button_paginator current"> 1 </button>
-                <button class="button_paginator forward no-active"> > </button>
-                <button class="button_paginator two_forward no-active"> >> </button>
+                <button class="button_paginator forward next no-active"> > </button>
+                <button class="button_paginator two_forward next no-active"> >> </button>
             </div>
+
+            <!-- Модальное окно -->
+
+            <div class="overlay modal-overlay"></div>
+            
+            <div class="modal">
+                <div class="modal-window">
+                    <img class="modal-img" src="../../assets/images/img-cards/Jennifer.png">
+                    <div class="content">
+                        <div class="title">
+                            <h3 class="modal-name">Jennifer</h3>
+                            <p class="modal-breed">Dog - Labrador</p>
+                        </div>
+                        <p class="modal-description">Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.</p>
+                        <ul class="list">
+                            <li class="list-item"><span class="title-list-item">Age:</span> <span class="text age">2 months</span></li>
+                            <li class="list-item"><span class="title-list-item">Inoculations:</span><span class="text inoculations">none</span></li>
+                            <li class="list-item"><span class="title-list-item">Diseases:</span><span class="text diseases">none</span></li>
+                            <li class="list-item"><span class="title-list-item">Parasites:</span><span class="text parasites">none</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <button class="button_close">
+                    <img src="../../assets/icons/close.png">
+                </button>
+            </div>
+
+            
         </div>
     </main>
     <footer class="footer wrapper" id="contacts">

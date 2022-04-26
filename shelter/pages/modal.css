@@ -9,91 +9,6 @@
   src: url("../fonts/georgia.ttf");
 }
 
-.footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.footer .contancts {
-  width: 279px;
-  height: 234px;
-  padding: 57px 0 60px 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.footer .locations {
-  width: 302px;
-  height: 234px;
-  padding: 57px 0 60px 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.footer .locations .content-adresse-1 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.footer .locations .content-adresse-1 .adresse-1 {
-  display: inline-block;
-  width: 260px;
-}
-
-.footer .title-footer {
-  font-family: 'Georgia';
-  font-weight: 400;
-  font-size: 35px;
-  line-height: 45px;
-  letter-spacing: 0.06em;
-  margin: 0;
-  letter-spacing: 0.06em;
-}
-
-.footer .content {
-  font-family: 'Georgia';
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 23px;
-  letter-spacing: 0.06em;
-  margin: 0;
-  color: #F1CDB3;
-}
-
-.footer .icon-footer {
-  padding-right: 20px;
-  vertical-align: middle;
-}
-
-.footer .img {
-  padding-top: 40px;
-  height: 310px;
-}
-
 .modal {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -223,6 +138,12 @@
   margin: 0;
 }
 
+@media screen and (max-width: 768px) {
+  .modal .modal-window .content .modal-name {
+    text-align: center;
+  }
+}
+
 .modal .modal-window .content .modal-breed {
   font-family: 'Georgia';
   font-weight: 400;
@@ -231,6 +152,12 @@
   letter-spacing: 0.06em;
   margin: 0;
   padding-top: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .modal .modal-window .content .modal-breed {
+    text-align: center;
+  }
 }
 
 .modal .modal-window .content .modal-description {
@@ -300,6 +227,11 @@
   z-index: 20;
   -webkit-transition: .3s all;
   transition: .3s all;
+}
+
+.overlay:hover ~ .modal > .button_close {
+  background-color: #FDDCC4;
+  border: 2px solid #FDDCC4;
 }
 
 /* Стили для активных классов подложки и окна */

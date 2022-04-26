@@ -447,7 +447,7 @@ body{
                     }
 
                     &.anim-cards {
-                        animation: next 2s 0s;
+                        animation: next 1s 0s;
                     }
                 }
             }
@@ -664,7 +664,7 @@ body{
 
 
     @media screen and (max-width: 1279px) {
-        
+        justify-content: center;
         gap: 8.5%;
         row-gap: 65px;
     }
@@ -689,7 +689,6 @@ body{
         @media screen and (min-width: 320px) and (max-width: 767px) { 
             align-items: center;
             height: 208px;
-            justify-content: center;
         }
     }
 

@@ -103,54 +103,54 @@ $footer-gradient-background: url(noise_lines_transparent@2X.png), radial-gradien
     }
 }
 
-.footer{
-    display: flex;
-    justify-content: space-between;
+// .footer{
+//     display: flex;
+//     justify-content: space-between;
 
-    .contancts{
-        width: 279px;
-        height: 234px;
-        padding: 57px 0 60px 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
+//     .contancts{
+//         width: 279px;
+//         height: 234px;
+//         padding: 57px 0 60px 0;
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: space-between;
+//     }
 
-    .locations{
-        width: 302px;
-        height: 234px;
-        padding: 57px 0 60px 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+//     .locations{
+//         width: 302px;
+//         height: 234px;
+//         padding: 57px 0 60px 0;
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: space-between;
 
-        .content-adresse-1 {
-            display: flex;
-            align-items: center;
-            .adresse-1{
-                display: inline-block;
-                width: 260px;
-            }
-        }
-    }
+//         .content-adresse-1 {
+//             display: flex;
+//             align-items: center;
+//             .adresse-1{
+//                 display: inline-block;
+//                 width: 260px;
+//             }
+//         }
+//     }
 
-    .title-footer{
-        @include header3();
-        letter-spacing: 0.06em;
-    }
+//     .title-footer{
+//         @include header3();
+//         letter-spacing: 0.06em;
+//     }
 
-    .content {
-        @include header4();
-        color: $color-primary;
-    }
+//     .content {
+//         @include header4();
+//         color: $color-primary;
+//     }
 
-    .icon-footer{ 
-        padding-right: 20px;
-        vertical-align: middle;
-    }
+//     .icon-footer{ 
+//         padding-right: 20px;
+//         vertical-align: middle;
+//     }
 
-    .img{
-        padding-top: 40px;
-        height: 310px;
-    }
-}
+//     .img{
+//         padding-top: 40px;
+//         height: 310px;
+//     }
+// }

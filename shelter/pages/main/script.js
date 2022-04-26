@@ -16,8 +16,7 @@ function toggleMenu() {
 }
 
 function closeMenu(event) {
-
-    if (event.target.className === 'link') {
+    if (event.target.classList.contains('link')) {
 
         hamburger.classList.remove('open');
         nav.classList.toggle('open');
@@ -28,6 +27,7 @@ function closeMenu(event) {
 
 hamburger.addEventListener('click', toggleMenu);
 nav.addEventListener('click', closeMenu);
+document.querySelector('.nav-menu-logo').addEventListener('click', toggleMenu);
 overlayHamburger.addEventListener('click', toggleMenu);
 
 function getRandomInt(min, max) {
@@ -54,10 +54,10 @@ function addCard() {
         wrapCards.insertAdjacentHTML('beforeend', card);   
         
     }
-    }, 1000);
+    }, 500);
     setTimeout(() => {
         wrapCards.classList.remove("anim-cards");    
-    }, 2000);
+    }, 1000);
 }
 
 function generationIndexCards() {
