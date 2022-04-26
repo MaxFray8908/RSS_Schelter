@@ -96,11 +96,19 @@
 
             .modal-name {
                 @include header3();
+
+                @media screen and (max-width: 768px){
+                    text-align: center;
+                }
             }
 
             .modal-breed {
                 @include header4();
                 padding-top: 10px; 
+
+                @media screen and (max-width: 768px){
+                    text-align: center;
+                }
             }
 
             .modal-description {
@@ -157,8 +165,13 @@
     background: rgba(41, 41, 41, 0.6);
     z-index: 20;
     transition: .3s all;
+
+    &:hover ~ .modal > .button_close{
+        background-color: $color-primary-light;
+        border: 2px solid $color-primary-light;
+    }
 }
- 
+
     /* Стили для активных классов подложки и окна */
 
 .modal.active,

@@ -17,7 +17,7 @@ function toggleMenu() {
 
 function closeMenu(event) {
 
-    if (event.target.className === 'link') {
+    if (event.target.classList.contains('link')) {
 
         hamburger.classList.remove('open');
         nav.classList.toggle('open');
@@ -33,11 +33,12 @@ overlayHamburger.addEventListener('click', toggleMenu);
 
 function addCard() {
 
-    let nextArrayCards = arrayCards.slice(numberPage * countCards, numberPage * countCards + countCards);
+    let nextArrayCards = arrayCards.slice((numberPage - 1) * countCards, (numberPage - 1) * countCards + countCards);
     // console.log(nextArrayCards[]);
     let wrapCards = document.querySelector('.cards');
-     
-
+    
+    document.querySelector('.current').innerHTML = numberPage;
+    
     wrapCards.innerHTML = '';
 
     for (let item of nextArrayCards) {
@@ -49,12 +50,38 @@ function addCard() {
 
         wrapCards.insertAdjacentHTML('beforeend', card);        
     }
+
+    if (numberPage * countCards === 48) {
+        document.querySelectorAll('.next').forEach(event => {
+            event.classList.add('inactive');
+            event.classList.remove('no-active');
+        })
+    }
+    if (numberPage !== 1) {
+        document.querySelectorAll('.prev').forEach(event => {
+            event.classList.remove('inactive');
+            event.classList.add('no-active');
+        })
+    }
+    if (numberPage === 1) {
+        document.querySelectorAll('.prev').forEach(event => {
+            event.classList.add('inactive');
+            event.classList.remove('no-active');
+        })
+    }
+    if (numberPage * countCards !== 48) {
+        document.querySelectorAll('.next').forEach(event => {
+            event.classList.remove('inactive');
+            event.classList.add('no-active');
+        })
+    }
 }
 
 function screenWidth () {
     if (countCards != calccountCards()) {
-        generationIndexCards();
-        addCard();
+        numberPage = 1;
+        countCards = calccountCards();
+        generationArrayCards();
     }
     countCards = calccountCards();
 }
@@ -79,14 +106,14 @@ function getRandomInt(min, max) {
 }
 
 function generationArrayCards() {
+
+    arrayCards = [];
     let countIndexCards = {'1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0};
 
     for (let i = 0; i < (48 / countCards); i++) {
-        // console.log('ddd');
         let arrayIndex = new Set();
         while (arrayIndex.size !== countCards) {
             let indexCard = getRandomInt(0, 8);
-            // console.log(countIndexCards.indexCard);
             if(countIndexCards.indexCard !== 6) {
                 
                 arrayIndex.add(indexCard);
@@ -97,14 +124,25 @@ function generationArrayCards() {
             arrayCards.push(pets[index])
         }
     }
-    // console.log(arrayCards);
     addCard();
 }
 
 function editPage(event) {
-    console.log(event.target.className);
-    if (event.target.className.indexOf('forward') !== -1) {
+
+    if (event.target.classList.contains('forward') && event.target.classList.contains('no-active')) {
         numberPage += 1;
+        addCard();
+    }
+    else if(event.target.classList.contains('two_forward') && event.target.classList.contains('no-active')) {
+        numberPage = 48 / countCards;
+        addCard();
+    }
+    else if(event.target.classList.contains('back') && event.target.classList.contains('no-active')) {
+        numberPage -= 1;
+        addCard();
+    }
+    else if(event.target.classList.contains('two_back') && event.target.classList.contains('no-active')) {
+        numberPage = 1;
         addCard();
     }
 }
@@ -134,5 +172,3 @@ function getLocalStorage() {
     // }
 }
 window.addEventListener('load', getLocalStorage)
-
-alert('Прошу проверить работу сегодня после 6 вечера');
